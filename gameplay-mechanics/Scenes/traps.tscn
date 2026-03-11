@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy1bdr55ege58"]
+
+[ext_resource type="Texture2D" uid="uid://mk6nhexqph20" path="res://Assets/trap_saw.png" id="1_q0un5"]
+[ext_resource type="Script" uid="uid://hkm1ja70ah05" path="res://Scripts/traps.gd" id="1_y4pun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4pun"]
+size = Vector2(27.6893, 13.4286)
+
+[node name="Traps" type="Area2D"]
+script = ExtResource("1_y4pun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.6226e-06, 0.79166)
+scale = Vector2(1.66129, 1.45833)
+shape = SubResource("RectangleShape2D_y4pun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(1.66129, 1.45833)
+texture = ExtResource("1_q0un5")
+region_enabled = true
+region_rect = Rect2(16.3479, 14.737, 31.8631, 24.2265)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
