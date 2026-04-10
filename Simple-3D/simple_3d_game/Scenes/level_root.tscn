@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd7u6yot42abc"]
+
+[ext_resource type="PackedScene" uid="uid://bs8cjq0ksmvhs" path="res://Scenes/block.tscn" id="1_a65vn"]
+[ext_resource type="Script" uid="uid://daphxj5ski1ei" path="res://Scripts/level_root.gd" id="1_qk2tg"]
+[ext_resource type="PackedScene" uid="uid://btwwsxquk026g" path="res://Scenes/player.tscn" id="2_1d17y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m2urr"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a65vn"]
+size = Vector3(10, 0.5, 10)
+
+[node name="LevelRoot" type="Node3D"]
+script = ExtResource("1_qk2tg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999998, -0.00205949, 2.56293e-12, 0.00191805, 0.931321, 0.364194, -0.000750053, -0.364193, 0.931323, 0.0536446, 3.11236, 6.77291)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265766, 0.00211823)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_m2urr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_a65vn")
+debug_fill = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766235, -0.435651, 0.472326, 1.31489e-08, 0.735068, 0.677993, -0.64256, -0.519502, 0.563235, 1.96725, 5.2918, 2.0605)
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_a65vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326927, 4.00366, 0.701142)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_a65vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434453, 6.07236, 0.803674)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_a65vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12712, 6.6228, 0.701142)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_a65vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08757, 8.6915, 0.803674)
+
+[node name="Player" parent="." instance=ExtResource("2_1d17y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0287862, 0.484763, 3.66351)
+
+[node name="FPSLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
