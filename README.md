@@ -30,6 +30,6 @@
 ### Week 4 Activity 2: Multiplayer (I used Docker) 
 
 Unfortunateley I did not fully finished it.
-Also I missed up the commits, I already committed it before but i miss up the git bash commands.
+Also I missed up the commits, I already committed it before but i missed up the git bash commands.
 So I had to commit all at once.
 
