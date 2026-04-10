@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjuf2yjl870tp"]
+
+[ext_resource type="Script" uid="uid://cq8qlv21vtxda" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://7ffcyyqw70ja" path="res://hello_cube.gd" id="2_h2yge"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(0.88836896, 0, 0.4591303, 0, 1, 0, -0.4591303, 0, 0.88836896, 0, 0, 0)
+script = ExtResource("1_0xm2m")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="HelloCube" type="Node3D" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="Box" type="MeshInstance3D" parent="HelloCube"]
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="Text" type="Label3D" parent="HelloCube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+text = "HELLO WORLD"
+font_size = 64
